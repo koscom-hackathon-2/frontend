@@ -1,4 +1,3 @@
-n#  - Frontend
 
 ## ⚠️ Requirements for Web Frontend
 
