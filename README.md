@@ -53,7 +53,7 @@ server {
 
         server_name yoonseul.link ;
 
-        root /home/ubuntu/koscom_hackathon-2/frontend/build;
+        root /home/ubuntu/koscom_hackathon_2/frontend/build;
         index index.html;
 
         location /generate {
