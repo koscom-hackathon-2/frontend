@@ -53,7 +53,7 @@ server {
 
         server_name yoonseul.link ;
 
-        root /home/ubuntu/level3_nlp_finalproject-nlp-08/frontend/build;
+        root /home/ubuntu/koscom_hackathon-2/frontend/build;
         index index.html;
 
         location /generate {
