@@ -2,8 +2,9 @@ import Header from './components/Header';
 import Loader from './components/Loader';
 import ChattingSideBar from './components/ChattingSideBar';
 import SimilarPrecedent from './components/SimilarPrecedent';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import TypingAnimation from './components/TypingAnimation';
+import komi from './asset/komi.png';
 
 function App() {
   const [loading, setLoading] = useState(false)
@@ -84,15 +85,11 @@ function App() {
                     {aianswer && (
                       <div className="animate-fade-up animate-delay-100 col-start-1 col-end-8 p-3 rounded-lg">
                         <div className="flex flex-row items-center">
-                          <div
-                            className="flex items-center justify-center h-10 w-10 rounded-full bg-orange-400 flex-shrink-0"
-                          >
-                            L
-                          </div>
-                          <div
-                            className="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl"
-                          >
-                            <TypingAnimation text={aianswer}/>
+                          <img className="flex items-center justify-center h-10 w-10 rounded-full flex-shrink-0"
+                                src={komi}
+                                alt=""/>
+                          <div className="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
+                          <TypingAnimation text={aianswer}/>
                           </div>
                         </div>
                       </div>)}
