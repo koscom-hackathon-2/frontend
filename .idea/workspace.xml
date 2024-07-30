@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29eb5edc-f657-4570-a27c-9bae8877f3ef" name="Changes" comment="#1 캐릭터 이미지 추가">
-      <change afterPath="$PROJECT_DIR$/.github/pr_template.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/koscom2024-hackaton2-fe.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/koscom2024-hackathon2-fe.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="29eb5edc-f657-4570-a27c-9bae8877f3ef" name="Changes" comment="(no-issue) pr 템플릿 추가">
+      <change afterPath="$PROJECT_DIR$/frontend/src/asset/fnq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/asset/guide.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/asset/koscom_ad.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/asset/notice.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ChattingSideBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ChattingSideBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,20 +36,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jisuson/Downloads/koscom2024-hackaton2-fe/frontend/src/asset&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/jisuson/Downloads/koscom2024-hackaton2-fe/frontend/src/asset",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/Applications/IntelliJ IDEA.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend/src/asset" />
@@ -194,7 +201,7 @@
       <option name="presentableId" value="Default" />
       <updated>1722161971398</updated>
       <workItem from="1722161972708" duration="3526000" />
-      <workItem from="1722238828012" duration="713000" />
+      <workItem from="1722238828012" duration="15853000" />
     </task>
     <task id="LOCAL-00001" summary="#1 캐릭터 이미지 추가">
       <option name="closed" value="true" />
@@ -204,7 +211,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722224176047</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="(no-issue) pr 템플릿 추가">
+      <option name="closed" value="true" />
+      <created>1722240084560</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1722240084560</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,6 +227,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="#1 캐릭터 이미지 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="#1 캐릭터 이미지 추가" />
+    <MESSAGE value="(no-issue) pr 템플릿 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="(no-issue) pr 템플릿 추가" />
   </component>
 </project>
