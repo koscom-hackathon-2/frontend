@@ -4,22 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29eb5edc-f657-4570-a27c-9bae8877f3ef" name="Changes" comment="(no-issue) pr 템플릿 추가">
-      <change afterPath="$PROJECT_DIR$/frontend/src/asset/fnq.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/asset/guide.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/asset/koscom_ad.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/asset/notice.png" afterDir="false" />
+    <list default="true" id="29eb5edc-f657-4570-a27c-9bae8877f3ef" name="Changes" comment="#3 좌측 사이드 바 - 메뉴 링크적용">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/ChattingSideBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ChattingSideBar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.js" afterDir="false" />
     </list>
+    <list id="d440b46e-6963-4a4e-b9ba-d7e123b7515d" name="menu" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -47,6 +47,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "actions.on.save",
     "ts.external.directory.path": "/Applications/IntelliJ IDEA.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
   }
@@ -196,12 +197,13 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="29eb5edc-f657-4570-a27c-9bae8877f3ef" name="Changes" comment="" />
+      <changelist id="d440b46e-6963-4a4e-b9ba-d7e123b7515d" name="menu" comment="" />
       <created>1722161971398</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1722161971398</updated>
       <workItem from="1722161972708" duration="3526000" />
-      <workItem from="1722238828012" duration="15853000" />
+      <workItem from="1722238828012" duration="23213000" />
     </task>
     <task id="LOCAL-00001" summary="#1 캐릭터 이미지 추가">
       <option name="closed" value="true" />
@@ -219,7 +221,23 @@
       <option name="project" value="LOCAL" />
       <updated>1722240084560</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="#3 좌측 사이드 바 - 광고 이미지, 메뉴 링크적용">
+      <option name="closed" value="true" />
+      <created>1722317315625</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1722317315625</updated>
+    </task>
+    <task id="LOCAL-00004" summary="#3 좌측 사이드 바 - 메뉴 링크적용">
+      <option name="closed" value="true" />
+      <created>1722317357451</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1722317357451</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,6 +246,24 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="#1 캐릭터 이미지 추가" />
     <MESSAGE value="(no-issue) pr 템플릿 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="(no-issue) pr 템플릿 추가" />
+    <MESSAGE value="#3 좌측 사이드 바 - 광고 이미지, 메뉴 링크적용" />
+    <MESSAGE value="#3 좌측 사이드 바 - 메뉴 링크적용" />
+    <option name="LAST_COMMIT_MESSAGE" value="#3 좌측 사이드 바 - 메뉴 링크적용" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/frontend/tailwind.config.js</url>
+          <line>5</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

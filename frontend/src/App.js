@@ -3,8 +3,9 @@ import Loader from './components/Loader';
 import ChattingSideBar from './components/ChattingSideBar';
 import SimilarPrecedent from './components/SimilarPrecedent';
 import React, {useState} from 'react';
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import {Routes, Route, useLocation} from "react-router-dom";
 import TypingAnimation from './components/TypingAnimation';
+import {TransitionGroup, CSSTransition} from "react-transition-group";
 
 import komi from './asset/komi.png';
 import guide from './asset/guide.png';
@@ -18,6 +19,7 @@ function App() {
     const [aianswer, setAianswer] = useState("");
     const [precedents, setPrecedents] = useState(null);
     const ans = "\n\nAI가 작성한 답변이며 실제와 다를 수 있으므로 참고 자료로만 활용하시고, 코스콤은 법적 책임을 지지 않는다는 점 참고바랍니다."
+    const location = useLocation();
 
     const messagehandler = async (e) => {
         e.preventDefault();
@@ -111,10 +113,10 @@ function App() {
                     <div>
                         <div className="flex items-center justify-center text-gray-400 hover:text-gray-600">
                             <svg className="w-5 h-5"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
+                                 fill="none"
+                                 stroke="currentColor"
+                                 viewBox="0 0 24 24"
+                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
@@ -168,8 +170,8 @@ function App() {
     // Bookmark 컴포넌트
     function Bookmark() {
         return <div className="flex flex-col flex-auto p-6">
-            <div className="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 p-4 mt-12">
-                <div className="flex flex-col h-full overflow-x-auto mb-4">
+            <div className="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 p-4 mt-12 ">
+                <div className="flex flex-col h-full overflow-x-auto mb-4 animate-fade-up animate-delay-100">
                     <div className="flex flex-col">
                         <div className="title">BOOKMARK</div>
                         <div className="bookmark-box">
@@ -196,7 +198,7 @@ function App() {
     function Help() {
         return <div className="flex flex-col flex-auto p-6">
             <div className="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 p-4 mt-12">
-                <div className="flex flex-col h-full overflow-x-auto mb-4">
+                <div className="flex flex-col h-full overflow-x-auto mb-4 animate-fade-up animate-delay-100">
                     <div className="flex flex-col">
                         <span className="title">HELP</span>
 
@@ -224,26 +226,28 @@ function App() {
     }
 
     return (
-        <Router>
         <div className="w-full overflow-x-hidden">
             <Header/>
-            <div className="flex h-screen antialiased text-gray-800">
-                <div className="flex flex-row w-full overflow-x-hidden">
-                    <div className="flex flex-col py-8 pl-4 w-64 bg-white flex-shrink-0">
-                        <ChattingSideBar/>
-                    </div>
-                        <Routes>
-                            <Route path="/" element={Chat()} />
-                            <Route path="/bookmark" element={Bookmark()} />
-                            <Route path="/help" element={Help()} />
-                        </Routes>
-                    <div className="flex flex-col py-8 w-64 bg-white flex-shrink-0">
-                        <SimilarPrecedent precedents={precedents}/>
+            <TransitionGroup>
+                <div className="flex h-screen antialiased text-gray-800">
+                    <div className="flex flex-row w-full overflow-x-hidden">
+                        <div className="flex flex-col py-8 pl-4 w-64 bg-white flex-shrink-0">
+                            <ChattingSideBar/>
+                        </div>
+                        <CSSTransition key={location.pathname} timeout={5000}>
+                            <Routes>
+                                <Route path="/" element={Chat()}/>
+                                <Route path="/bookmark" element={Bookmark()}/>
+                                <Route path="/help" element={Help()}/>
+                            </Routes>
+                        </CSSTransition>
+                        <div className="flex flex-col py-8 w-64 bg-white flex-shrink-0">
+                            <SimilarPrecedent precedents={precedents}/>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </TransitionGroup>
         </div>
-        </Router>
     );
 }
 
