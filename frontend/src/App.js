@@ -9,11 +9,12 @@ import Bookmark from "./components/Bookmark";
 import Help from "./components/Help";
 
 function App() {
-    const [precedents, setPrecedents] = useState(null);
     const location = useLocation();
     const bookmark = Bookmark();
     const help = Help();
     const chatting = Chatting();
+
+    const [precedents, setPrecedents] = useState(null);
 
     return (
         <div className="w-full overflow-x-hidden">
@@ -24,7 +25,7 @@ function App() {
                         <div className="flex flex-col py-8 pl-4 w-64 bg-white flex-shrink-0">
                             <ChattingSideBar/>
                         </div>
-                        <CSSTransition key={location.pathname} timeout={5000}>
+                        <CSSTransition key={location.pathname} timeout={500}>
                             <Routes>
                                 <Route path="/" element={chatting}/>
                                 <Route path="/bookmark" element={bookmark}/>

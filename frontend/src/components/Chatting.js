@@ -1,5 +1,10 @@
 import TypingAnimation from "./TypingAnimation";
 import komi from "../asset/komi.png";
+import chart1 from "../asset/chart1.svg";
+import chart2 from "../asset/chart2.svg";
+import chart3 from "../asset/chart3.svg";
+import chart4 from "../asset/chart4.svg";
+import next from "../asset/next-button.png";
 import Loader from "./Loader";
 import React, {useState} from "react";
 
@@ -8,10 +13,17 @@ function Chatting() {
     const [message, setMessage] = useState("");
     const [sentMessage, setSentMessage] = useState("");
     const [aianswer, setAianswer] = useState("");
-    const ans = "\n\nAI가 작성한 답변이며 실제와 다를 수 있으므로 참고 자료로만 활용하시고, 코스콤은 법적 책임을 지지 않는다는 점 참고바랍니다."
     const [precedents, setPrecedents] = useState(null);
+    const ans = "\n\nAI가 작성한 답변이며 실제와 다를 수 있으므로 참고 자료로만 활용하시고, 코스콤은 법적 책임을 지지 않는다는 점 참고바랍니다."
 
-    const messagehandler = async (e) => {
+    const guideMsg = [
+        "삼성전자 월말 종가 변화를 알려줘",
+        "공휴일 전날의 네이버의 외국인 투자자 매도 매수 현황을 보여줘",
+        "실적 발표 전날과 다음날의 네이버 주주 구성을 알려줘",
+        "나스닥 지수와 SK텔레콤 주가의 상관관계를 알려줘"
+    ];
+
+    const messagehandler = async (e, message) => {
         e.preventDefault();
         if (!loading) {
             setLoading(true);
@@ -55,47 +67,103 @@ function Chatting() {
         }
     };
 
+    function clickGuideBox(msg, e) {
+        setMessage(msg);
+        messagehandler(e, msg);
+    }
+
     return <div className="flex flex-col flex-auto p-6">
         <div className="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 p-4 mt-12">
-            <div className="flex flex-col h-full overflow-x-auto mb-4 animate-fade-up">
-                <div className="flex flex-col">
-                    <div className="grid grid-cols-12 gap-y-2">
-                        {sentMessage && (
-                            <div
-                                className="animate-fade-up animate-delay-100 col-start-6 col-end-13 p-3 rounded-lg">
-                                <div className="flex items-center justify-start flex-row-reverse">
-                                    <div
-                                        className="flex items-center justify-center h-10 w-10 rounded-full text-white bg-orange-600 flex-shrink-0">
-                                        U
+            <div className="flex flex-col h-full overflow-x-auto mb-4">
+                {sentMessage ? (
+                    <div className="flex flex-col">
+                        <div className="grid grid-cols-12 gap-y-2">
+                            {sentMessage && (
+                                <div
+                                    className="animate-fade-up animate-delay-100 col-start-6 col-end-13 p-3 rounded-lg">
+                                    <div className="flex items-center justify-start flex-row-reverse">
+                                        <div
+                                            className="flex items-center justify-center h-10 w-10 rounded-full text-white bg-orange-600 flex-shrink-0">
+                                            U
+                                        </div>
+                                        <div
+                                            className="animate-fade-up relative mr-3 text-sm bg-orange-200 py-2 px-4 shadow rounded-xl">
+                                            <TypingAnimation text={sentMessage}/>
+                                        </div>
                                     </div>
-                                    <div
-                                        className="animate-fade-up relative mr-3 text-sm bg-orange-200 py-2 px-4 shadow rounded-xl">
-                                        <TypingAnimation text={sentMessage}/>
+                                </div>
+                            )}
+                            {aianswer && (
+                                <div
+                                    className="animate-fade-up animate-delay-100 col-start-1 col-end-8 p-3 rounded-lg">
+                                    <div className="flex flex-row items-center">
+                                        <img
+                                            className="flex items-center justify-center h-10 w-10 rounded-full flex-shrink-0"
+                                            src={komi}
+                                            alt=""/>
+                                        <div
+                                            className="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
+                                            <TypingAnimation text={aianswer}/>
+                                        </div>
                                     </div>
+                                </div>)}
+                            {loading && (<Loader/>)}
+                        </div>
+                    </div>
+                ) : (
+                    <div className="guide-box">
+                        <button onClick={(e) => {
+                            clickGuideBox(guideMsg[0], e);
+                        }}>
+                            <div className="guide-card animate-fade-up">
+                                <div className="icon1">
+                                    <img src={chart2}></img>
+                                </div>
+                                <div className="guide-text">{guideMsg[0]}</div>
+                                <div className="icon2">
+                                    <img src={next}></img>
                                 </div>
                             </div>
-                        )}
-                        {aianswer && (
-                            <div
-                                className="animate-fade-up animate-delay-100 col-start-1 col-end-8 p-3 rounded-lg">
-                                <div className="flex flex-row items-center">
-                                    <img
-                                        className="flex items-center justify-center h-10 w-10 rounded-full flex-shrink-0"
-                                        src={komi}
-                                        alt=""/>
-                                    <div
-                                        className="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
-                                        <TypingAnimation text={aianswer}/>
-                                    </div>
+                        </button>
+                        <button onClick={(e) => clickGuideBox(guideMsg[1], e)}>
+                            <div className="guide-card animate-fade-up animate-delay-100">
+                                <div className="icon1">
+                                    <img src={chart3}></img>
                                 </div>
-                            </div>)}
-                        {loading && (<Loader/>)}
+                                <div className="guide-text">{guideMsg[1]}</div>
+                                <div className="icon2">
+                                    <img src={next}></img>
+                                </div>
+                            </div>
+                        </button>
+                        <button onClick={(e) => clickGuideBox(guideMsg[2], e)}>
+                            <div className="guide-card animate-fade-up animate-delay-200">
+                                <div className="icon1">
+                                    <img src={chart4}></img>
+                                </div>
+                                <div className="guide-text">{guideMsg[2]}</div>
+                                <div className="icon2">
+                                    <img src={next}></img>
+                                </div>
+                            </div>
+                        </button>
+                        <button onClick={(e) => clickGuideBox(guideMsg[3], e)}>
+                            <div className="guide-card animate-fade-up animate-delay-300">
+                                <div className="icon1">
+                                    <img src={chart1}></img>
+                                </div>
+                                <div className="guide-text">{guideMsg[3]}</div>
+                                <div className="icon2">
+                                    <img src={next}></img>
+                                </div>
+                            </div>
+                        </button>
                     </div>
-                </div>
+                )}
             </div>
             <form
                 className="flex flex-row items-center h-16 rounded-xl bg-white w-full px-4"
-                onSubmit={messagehandler}
+                onSubmit={(e) => messagehandler(e, message)}
                 disabled={loading}
             >
                 <div>
@@ -152,7 +220,7 @@ function Chatting() {
                 </div>
             </form>
         </div>
-    </div>;
+    </div>
 }
 
 export default Chatting
