@@ -45,6 +45,13 @@
     padding-right: 5px;
 }
 
+.bookmark-icon {
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+    padding-right: 5px;
+}
+
 .container {
     display: flex;
     justify-content: center;

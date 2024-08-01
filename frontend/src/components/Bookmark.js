@@ -4,7 +4,7 @@ import unmark_gray from "../asset/unmark_gray.svg";
 import {v4 as uuidv4} from "uuid";
 
 
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 function Bookmark() {
     // const list = [
@@ -32,6 +32,7 @@ function Bookmark() {
     //
     // localStorage.setItem("list", JSON.stringify(list));
 
+
     const [originList, setOriginList] = useState(JSON.parse(localStorage.getItem("list")));
 
     const removeItem = (txt) => {
@@ -43,7 +44,10 @@ function Bookmark() {
         });
         setOriginList(tmp);
 
-        localStorage.setItem("list", JSON.stringify(originList.filter(item => item.idx !== txt.idx)));
+        let copyList = JSON.parse(localStorage.getItem("list"));
+        copyList = copyList.filter(item => item.idx !== txt.idx);
+
+        localStorage.setItem("list", JSON.stringify(copyList));
     }
 
     const addItem = (txt) => {
@@ -55,7 +59,9 @@ function Bookmark() {
         });
         setOriginList(tmp);
 
-        localStorage.setItem("list", JSON.stringify(tmp));
+        let copyList = JSON.parse(localStorage.getItem("list"));
+        copyList.push(txt);
+        localStorage.setItem("list", JSON.stringify(copyList));
     }
 
     return <div className="flex flex-col flex-auto p-6">
