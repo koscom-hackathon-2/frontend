@@ -1,6 +1,5 @@
 import Header from './components/Header';
 import ChattingSideBar from './components/ChattingSideBar';
-import SimilarPrecedent from './components/SimilarPrecedent';
 import React, {useState} from 'react';
 import {Routes, Route, useLocation} from "react-router-dom";
 import {TransitionGroup, CSSTransition} from "react-transition-group";
@@ -13,8 +12,6 @@ function App() {
     const bookmark = Bookmark();
     const help = Help();
     const chatting = Chatting();
-
-    const [precedents, setPrecedents] = useState(null);
 
     return (
         <div className="w-full overflow-x-hidden">
@@ -32,9 +29,6 @@ function App() {
                                 <Route path="/help" element={help}/>
                             </Routes>
                         </CSSTransition>
-                        <div className="flex flex-col py-8 w-64 bg-white flex-shrink-0">
-                            <SimilarPrecedent precedents={precedents}/>
-                        </div>
                     </div>
                 </div>
             </TransitionGroup>
