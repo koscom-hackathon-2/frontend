@@ -84,7 +84,7 @@ function Bookmark() {
                                             />
                                         </button>
                                     }
-                                    <div>{txt.text}</div>
+                                    <div className="text-lg">{txt.text}</div>
                                 </div>
                             ))
                         }
