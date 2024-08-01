@@ -55,12 +55,12 @@
 .container {
     display: flex;
     justify-content: center;
-    gap: 0%;
+    gap: 1%;
     flex-wrap: wrap;
     margin: 0 auto;
 }
 
-.card {
+.container .card {
     margin: 13% auto;
     width: 230px;
     height: 330px;
