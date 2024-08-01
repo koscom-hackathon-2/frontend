@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29eb5edc-f657-4570-a27c-9bae8877f3ef" name="Changes" comment="#5 채팅 화면 - 북마크 기능">
+    <list default="true" id="29eb5edc-f657-4570-a27c-9bae8877f3ef" name="Changes" comment="#5 채팅 화면 - 북마크 mouseOver img change">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Bookmark.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Bookmark.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Chatting.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Chatting.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Help.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Help.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +78,7 @@
       <workItem from="1722161972708" duration="3526000" />
       <workItem from="1722238828012" duration="28119000" />
       <workItem from="1722383826230" duration="22131000" />
-      <workItem from="1722469138634" duration="18363000" />
+      <workItem from="1722469138634" duration="19288000" />
     </task>
     <task id="LOCAL-00001" summary="#1 캐릭터 이미지 추가">
       <option name="closed" value="true" />
@@ -160,7 +160,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722490392743</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="#5 채팅 화면 - 북마크 mouseOver img change">
+      <option name="closed" value="true" />
+      <created>1722491501886</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1722491501886</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,7 +196,8 @@
     <MESSAGE value="#4 홈 화면" />
     <MESSAGE value="#6 북마크 화면" />
     <MESSAGE value="#5 채팅 화면 - 북마크 기능" />
-    <option name="LAST_COMMIT_MESSAGE" value="#5 채팅 화면 - 북마크 기능" />
+    <MESSAGE value="#5 채팅 화면 - 북마크 mouseOver img change" />
+    <option name="LAST_COMMIT_MESSAGE" value="#5 채팅 화면 - 북마크 mouseOver img change" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

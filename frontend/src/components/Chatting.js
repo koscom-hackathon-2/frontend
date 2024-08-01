@@ -29,6 +29,7 @@ function Chatting() {
         "실적 발표 전날과 다음날의 네이버 주주 구성을 알려줘",
         "나스닥 지수와 SK텔레콤 주가의 상관관계를 알려줘"
     ];
+
     const messagehandler = async (e, message) => {
         e.preventDefault();
         if (!loading) {
