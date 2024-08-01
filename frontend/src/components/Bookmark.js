@@ -78,7 +78,10 @@ function Bookmark() {
                                             <img src={mark}/>
                                         </button> :
                                         <button className="bookmark-icon" onClick={() => addItem(txt)}>
-                                            <img src={unmark_gray}/>
+                                            <img src={unmark}
+                                                 onMouseOver={e => e.currentTarget.src = unmark}
+                                                 onMouseOut={e => e.currentTarget.src = unmark_gray}
+                                            />
                                         </button>
                                     }
                                     <div>{txt.text}</div>

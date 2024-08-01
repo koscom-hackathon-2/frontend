@@ -139,8 +139,12 @@ function Chatting() {
                                                 </button>
                                                 :
                                                 <button className="bookmark-icon" onClick={() => addItem(h)}>
-                                                    <img src={unmark_gray}/>
+                                                    <img src={unmark_gray}
+                                                         onMouseOver={e => e.currentTarget.src = unmark}
+                                                         onMouseOut={e => e.currentTarget.src = unmark_gray}
+                                                    />
                                                 </button>
+
                                             }
 
                                         </div>
@@ -196,7 +200,10 @@ function Chatting() {
                                                     "text": sentMessage
                                                 });
                                             }}>
-                                                <img src={unmark_gray}/>
+                                                <img src={unmark_gray}
+                                                     onMouseOver={e => e.currentTarget.src = unmark}
+                                                     onMouseOut={e => e.currentTarget.src = unmark_gray}
+                                                />
                                             </button>
                                         }
                                     </div>
