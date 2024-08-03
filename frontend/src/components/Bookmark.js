@@ -1,10 +1,8 @@
 import mark from "../asset/mark.svg";
 import unmark from "../asset/unmark.svg";
 import unmark_gray from "../asset/unmark_gray.svg";
-import {v4 as uuidv4} from "uuid";
-
-
 import React, {useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 function Bookmark() {
     // const list = [
@@ -64,6 +62,13 @@ function Bookmark() {
         localStorage.setItem("list", JSON.stringify(copyList));
     }
 
+    const navigate = useNavigate();
+
+    const handleClick = (text) => {
+        // 이동하면서 상태 전달
+        navigate('/', {state: {text}, replace: true},);
+    };
+
     return <div className="flex flex-col flex-auto p-6">
         <div className="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 p-4 mt-12 ">
             <div className="flex flex-col h-full overflow-x-auto mb-4 animate-fade-up animate-delay-100">
@@ -72,7 +77,8 @@ function Bookmark() {
                     <div className="bookmark-box">
                         {
                             originList.map((txt, index) => (
-                                <div className={"bookmark-card animate-fade-up animate-delay-" + index * 100}>
+                                <div className={"bookmark-card animate-fade-up animate-delay-" + index * 100}
+                                     onClick={(e) => handleClick(txt.text)}>
                                     {txt.mark ?
                                         <button className="bookmark-icon" onClick={() => removeItem(txt)}>
                                             <img src={mark}/>

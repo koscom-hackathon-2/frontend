@@ -1,32 +1,38 @@
-import Header from './components/Header';
-import ChattingSideBar from './components/ChattingSideBar';
-import SimilarPrecedent from './components/SimilarPrecedent';
-import React, {useState, useCallback} from 'react';
-import {Routes, Route, useLocation} from "react-router-dom";
+import React, {useState, useEffect} from 'react';
+import {Routes, Route, useLocation, useNavigate} from "react-router-dom";
 import {TransitionGroup, CSSTransition} from "react-transition-group";
-import Bookmark from "./components/Bookmark";
-import Help from "./components/Help";
-import mark from "./asset/mark.svg";
-import unmark_gray from "./asset/unmark_gray.svg";
-import unmark from "./asset/unmark.svg";
-import komi from "./asset/komi.png";
-import TypingAnimation from "./components/TypingAnimation";
-import Loader from "./components/Loader";
-import chart2 from "./asset/chart2.svg";
-import next from "./asset/next-button.png";
-import chart3 from "./asset/chart3.svg";
-import chart4 from "./asset/chart4.svg";
-import chart1 from "./asset/chart1.svg";
 import {v4 as uuidv4} from "uuid";
 import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
+import Header from './components/Header';
+import Bookmark from "./components/Bookmark";
+import Help from "./components/Help";
+import TypingAnimation from "./components/TypingAnimation";
+import ChattingSideBar from './components/ChattingSideBar';
+import Loader from "./components/Loader";
+import komi from "./asset/komi.png";
+import mark from "./asset/mark.svg";
+import unmark from "./asset/unmark.svg";
+import unmark_gray from "./asset/unmark_gray.svg";
+import next from "./asset/next-button.png";
+import chart1 from "./asset/chart1.svg";
+import chart2 from "./asset/chart2.svg";
+import chart3 from "./asset/chart3.svg";
+import chart4 from "./asset/chart4.svg";
+import "highlight.js/styles/a11y-dark.css";
 
 function App() {
+    const guideMsg = [
+        "삼성전자 월말 종가 변화를 알려줘",
+        "공휴일 전날의 네이버의 외국인 투자자 매도 매수 현황을 보여줘",
+        "실적 발표 전날과 다음날의 네이버 주주 구성을 알려줘",
+        "나스닥 지수와 SK텔레콤 주가의 상관관계를 알려줘"
+    ];
+
     const location = useLocation();
     const bookmark = Bookmark();
     const help = Help();
     const [generatedCode, setGeneratedCode] = useState("");
-
     const [loading, setLoading] = useState(false);
     const [history, setHistory] = useState([]);
     const [message, setMessage] = useState("");
@@ -37,15 +43,11 @@ function App() {
     const [uid, setUid] = useState("");
     const ans = "\n\n AI가 작성한 답변이며 실제와 다를 수 있으므로 참고 자료로만 활용하시고, 코스콤은 법적 책임을 지지 않는다는 점 참고바랍니다."
 
-    const guideMsg = [
-        "삼성전자 월말 종가 변화를 알려줘",
-        "공휴일 전날의 네이버의 외국인 투자자 매도 매수 현황을 보여줘",
-        "실적 발표 전날과 다음날의 네이버 주주 구성을 알려줘",
-        "나스닥 지수와 SK텔레콤 주가의 상관관계를 알려줘"
-    ];
-
     const messagehandler = async (e, message) => {
-        e.preventDefault();
+        if (e) {
+            e.preventDefault();
+        }
+
         if (!loading) {
             if (sentMessage) {
                 // history 쌓기
@@ -87,30 +89,10 @@ function App() {
                             setAianswer(data.code_exec_result.text ? data.code_exec_result.text + ans : ans);
                         }
                     }
-
-                    // setHistory(history.concat(chat), function () {
-                    //     setLoading(true);
-                    //     setMessage("");
-                    //     setSentMessage(message);
-                    //     setAianswer("");
-                    //     setResponseImage("");
-                    //     setGeneratedCode("");
-                    //     setUid("");
-                    //     setCurrentMark(false);
-                    // });
                 }
             } catch (error) {
                 console.error("에러 발생:", error);
             } finally {
-                // // history 쌓기
-                // const chat = {
-                //     "idx": uid,
-                //     "mark": currentMark,
-                //     "text": sentMessage,
-                //     "a": aianswer,
-                //     "img": responseImage
-                // };
-                // setHistory(prevItems => [...prevItems, chat]);
                 setLoading(false);
             }
         }
@@ -148,22 +130,45 @@ function App() {
         messagehandler(e, msg);
     }
 
+    let loc = useLocation();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (loc.state) {
+            handleEvent(loc.state.text);
+        }
+
+        // 새로 고침 시 상태를 제거
+        const clearStateOnUnload = () => {
+            navigate(location.pathname, {replace: true, state: null});
+        };
+
+        window.addEventListener('beforeunload', clearStateOnUnload);
+
+        return () => {
+            window.removeEventListener('beforeunload', clearStateOnUnload);
+        };
+
+    }, [loc.state, navigate]);
+
+    const handleEvent = (text) => {
+        clickGuideBox(text, null);
+    };
+
     return (
         <div className="w-full overflow-x-hidden">
             <Header/>
             <TransitionGroup>
                 <div className="flex h-screen antialiased text-gray-800">
                     <div className="flex flex-row w-full overflow-x-hidden">
-                        <div className="flex flex-col py-8 pl-4 w-64 bg-white flex-shrink-0">
+                        <div className="flex flex-col py-8 pl-4 w-1/6 bg-white flex-shrink-0">
                             <ChattingSideBar/>
                         </div>
                         <CSSTransition key={location.pathname} timeout={500}>
                             <Routes>
-                                {/*<Route path="/"*/}
-                                {/*       Component={() => <Chatting onMessageChange={handleMessageChange}/>}/>*/}
                                 <Route path="/"
                                        element={
-                                           <div className="flex flex-col flex-auto p-6">
+                                           <div className="relative flex flex-col p-6 flex-auto">
                                                <div
                                                    className="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 p-4 mt-12">
                                                    <div className="flex flex-col h-full overflow-x-auto mb-4">
@@ -414,22 +419,22 @@ function App() {
                                 <Route path="/help" element={help}/>
                             </Routes>
                         </CSSTransition>
-                        <div className="flex flex-col py-8 w-64 bg-white flex-shrink-0">
-                            {/*<SimilarPrecedent generatedCode={generatedCode}/>*/}
-                            <div className="w-full overflow-x-hidden">
+                        <div className="flex flex-col py-8 w-1/4 bg-white flex-shrink-0">
+                            <div className="h-full overflow-x-hidden">
                                 <aside
                                     id="separator-sidebar"
-                                    className="fixed top-12 right-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+                                    className="top-12 right-0 z-40 h-screen transition-transform -translate-x-full sm:translate-x-0"
                                     aria-label="Sidebar"
                                 >
-                                    <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+                                    <div
+                                        className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
                                         {generatedCode ?
-                                            <ul className="space-y-2 font-medium mt-2 mb-2">
-                                                <h1>Generated Code</h1>
+                                            <div className="space-y-2 mt-2 mb-2 pl-1">
+                                                <h1 className="text-2xl font-extrabold pt-4">🤖 Generated Code</h1>
                                                 <ReactMarkdown rehypePlugins={[rehypeHighlight]}>
                                                     {"```python\n" + generatedCode + "\n" + "```"}
                                                 </ReactMarkdown>
-                                            </ul>
+                                            </div>
                                             : null
                                         }
                                     </div>

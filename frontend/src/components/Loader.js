@@ -5,7 +5,7 @@ function Loader() {
     const phrases = [
         "정보를 로딩 중 입니다... 잠시만 기다려 주세요.",
         "답변을 수집 중 입니다. 잠시만 기다려주세요.",
-        "답변을 생성하는데 최대 30초 정도의 시간이 걸립니다."
+        "답변을 생성하는데 최대 30초 정도 걸립니다."
     ];
 
     const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
@@ -48,7 +48,6 @@ function Loader() {
                         />
                     </div>
                 </div>
-
             </div>
         </div>
     );
