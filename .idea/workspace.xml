@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29eb5edc-f657-4570-a27c-9bae8877f3ef" name="Changes" comment="(no-issue) Precedent 제거">
+    <list default="true" id="29eb5edc-f657-4570-a27c-9bae8877f3ef" name="Changes" comment="(no-issue) code 전달시 Chat 리렌더링 되는 문제 fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Bookmark.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Bookmark.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Chatting.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Chatting.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/SimilarPrecedent.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/SimilarPrecedent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/TypingAnimation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TypingAnimation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +77,7 @@
       <workItem from="1722238828012" duration="28119000" />
       <workItem from="1722383826230" duration="22131000" />
       <workItem from="1722469138634" duration="29041000" />
-      <workItem from="1722570373054" duration="21820000" />
+      <workItem from="1722570373054" duration="23844000" />
     </task>
     <task id="LOCAL-00001" summary="#1 캐릭터 이미지 추가">
       <option name="closed" value="true" />
@@ -221,7 +215,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722501738368</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="(no-issue) code 전달시 Chat 리렌더링 되는 문제 fix">
+      <option name="closed" value="true" />
+      <created>1722674359236</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1722674359237</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,7 +256,8 @@
     <MESSAGE value="(no-issue) loader 수정" />
     <MESSAGE value="(no-issue) text size up" />
     <MESSAGE value="(no-issue) Precedent 제거" />
-    <option name="LAST_COMMIT_MESSAGE" value="(no-issue) Precedent 제거" />
+    <MESSAGE value="(no-issue) code 전달시 Chat 리렌더링 되는 문제 fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="(no-issue) code 전달시 Chat 리렌더링 되는 문제 fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

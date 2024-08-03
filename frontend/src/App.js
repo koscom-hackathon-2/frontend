@@ -47,6 +47,17 @@ function App() {
     const messagehandler = async (e, message) => {
         e.preventDefault();
         if (!loading) {
+            if (sentMessage) {
+                // history 쌓기
+                const chat = {
+                    "idx": uid,
+                    "mark": currentMark,
+                    "text": sentMessage,
+                    "a": aianswer,
+                    "img": responseImage
+                };
+                setHistory(prevItems => [...prevItems, chat]);
+            }
             setLoading(true);
             setMessage("");
             setSentMessage(message);
@@ -76,28 +87,30 @@ function App() {
                             setAianswer(data.code_exec_result.text ? data.code_exec_result.text + ans : ans);
                         }
                     }
+
+                    // setHistory(history.concat(chat), function () {
+                    //     setLoading(true);
+                    //     setMessage("");
+                    //     setSentMessage(message);
+                    //     setAianswer("");
+                    //     setResponseImage("");
+                    //     setGeneratedCode("");
+                    //     setUid("");
+                    //     setCurrentMark(false);
+                    // });
                 }
             } catch (error) {
                 console.error("에러 발생:", error);
             } finally {
-                // history 쌓기
-                const chat = {
-                    "idx": uid,
-                    "mark": currentMark,
-                    "text": sentMessage,
-                    "a": aianswer,
-                    "img": responseImage
-                };
-                setHistory(history.concat(chat), function () {
-                    setLoading(true);
-                    setMessage("");
-                    setSentMessage(message);
-                    setAianswer("");
-                    setResponseImage("");
-                    setGeneratedCode("");
-                    setUid("");
-                    setCurrentMark(false);
-                });
+                // // history 쌓기
+                // const chat = {
+                //     "idx": uid,
+                //     "mark": currentMark,
+                //     "text": sentMessage,
+                //     "a": aianswer,
+                //     "img": responseImage
+                // };
+                // setHistory(prevItems => [...prevItems, chat]);
                 setLoading(false);
             }
         }
@@ -134,7 +147,6 @@ function App() {
         setMessage(msg);
         messagehandler(e, msg);
     }
-
 
     return (
         <div className="w-full overflow-x-hidden">
