@@ -1,4 +1,5 @@
 import TypingAnimation from "./TypingAnimation";
+import "highlight.js/styles/a11y-dark.css";
 import komi from "../asset/komi.png";
 import chart1 from "../asset/chart1.svg";
 import chart2 from "../asset/chart2.svg";
@@ -6,22 +7,26 @@ import chart3 from "../asset/chart3.svg";
 import chart4 from "../asset/chart4.svg";
 import next from "../asset/next-button.png";
 import Loader from "./Loader";
-import React, {useState} from "react";
+import React, {useState, useCallback} from "react";
 import {v4 as uuidv4} from "uuid";
 import mark from "../asset/mark.svg";
 import unmark from "../asset/unmark.svg";
 import unmark_gray from "../asset/unmark_gray.svg";
 
-function Chatting() {
+const Chatting = React.memo(({onMessageChange}) => {
     const [loading, setLoading] = useState(false);
     const [history, setHistory] = useState([]);
     const [message, setMessage] = useState("");
     const [sentMessage, setSentMessage] = useState("");
     const [aianswer, setAianswer] = useState("");
-    const [precedents, setPrecedents] = useState(null);
+    const [responseImage, setResponseImage] = useState("");
     const [currentMark, setCurrentMark] = useState(false);
     const [uid, setUid] = useState("");
-    const ans = "\n\nAI가 작성한 답변이며 실제와 다를 수 있으므로 참고 자료로만 활용하시고, 코스콤은 법적 책임을 지지 않는다는 점 참고바랍니다."
+    const ans = "\n\n AI가 작성한 답변이며 실제와 다를 수 있으므로 참고 자료로만 활용하시고, 코스콤은 법적 책임을 지지 않는다는 점 참고바랍니다."
+
+    const handleChange = useCallback((code) => {
+        onMessageChange(code);
+    }, [onMessageChange]);
 
     const guideMsg = [
         "삼성전자 월말 종가 변화를 알려줘",
@@ -37,29 +42,31 @@ function Chatting() {
             setMessage("");
             setSentMessage(message);
             setAianswer("");
-            setPrecedents(null);
+            setResponseImage("");
             setUid(uuidv4());
             setCurrentMark(false);
             try {
                 if (message.trim().length <= 5) {
                     setAianswer("죄송합니다. 입력하신 \"" + message + "\"는 너무 짧아 정확한 답변을 제공하기 어려운 점 양해해주시기 바랍니다. 정확하고 효과적인 답변을 위해 더욱 구체적으로 질문해주시기 바랍니다.");
                 } else {
-                    const response = await fetch('/generate', {
+                    const response = await fetch('http://103.244.111.246:8080/chat-completion', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
                         },
-                        body: JSON.stringify({q_sentence: message}),
+                        body: JSON.stringify({user_message: message}),
                     });
 
                     const data = await response.json();
                     if (data != null) {
-                        if (data.answer_sentence == null | data.answer_sentence === "\n") {
-                            setAianswer("죄송합니다. 주식전문 AI 입니다. 주식 이외의 질문은 답변해 드리지 않는 점 참고 부탁드립니다. 어떤 도움이 필요하신가요?");
-                            setPrecedents(null);
+                        if (data.generated_code === null || data.code_exec_result === null) {
+                            setAianswer("죄송합니다. 주식 이외의 질문은 답변해 드리지 않는 점 참고 부탁드립니다. 어떤 도움이 필요하신가요?");
                         } else {
-                            setAianswer(data.answer_sentence + ans);
-                            setPrecedents(data.similar_precedent);
+                            // handleChange(data.generated_code)
+                            // setGeneratedCode(data.generated_code);
+                            setResponseImage(data.code_exec_result.image);
+                            setAianswer(data.code_exec_result.text ? data.code_exec_result.text + ans : ans);
+                            handleChange(data.generated_code);
                         }
                     }
                 }
@@ -71,12 +78,18 @@ function Chatting() {
                     "idx": uid,
                     "mark": currentMark,
                     "text": sentMessage,
-                    "a": aianswer
+                    "a": aianswer,
+                    "img": responseImage
                 };
                 setHistory(history.concat(chat), function () {
-                    setUid("");
-                    setSentMessage("");
-                    setCurrentMark(false);
+                    // setLoading(true);
+                    // setMessage("");
+                    // setSentMessage(message);
+                    // setAianswer("");
+                    // setResponseImage("");
+                    // setGeneratedCode("");
+                    // setUid("");
+                    // setCurrentMark(false);
                 });
                 setLoading(false);
             }
@@ -118,7 +131,7 @@ function Chatting() {
     return <div className="flex flex-col flex-auto p-6">
         <div className="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 p-4 mt-12">
             <div className="flex flex-col h-full overflow-x-auto mb-4">
-                {history.length !== 0 ? (
+                {sentMessage || message || history[0] ? (
                     <div className="flex flex-col">
                         {/* old chat */}
                         {history.map(h => (<div className="grid grid-cols-12 gap-y-2">
@@ -131,23 +144,23 @@ function Chatting() {
                                                 U
                                             </div>
                                             <div
-                                                className="relative mr-3 text-sm bg-orange-200 py-2 px-4 shadow rounded-xl">
+                                                className="relative mr-3 text-lg bg-orange-200 py-2 px-4 shadow rounded-xl">
                                                 {h.text}
                                             </div>
                                             {h.mark ?
-                                                <button className="bookmark-icon" onClick={() => removeItem(h)}>
+                                                <button className="bookmark-icon flex-shrink-0"
+                                                        onClick={() => removeItem(h)}>
                                                     <img src={mark}/>
                                                 </button>
                                                 :
-                                                <button className="bookmark-icon" onClick={() => addItem(h)}>
+                                                <button className="bookmark-icon flex-shrink-0"
+                                                        onClick={() => addItem(h)}>
                                                     <img src={unmark_gray}
                                                          onMouseOver={e => e.currentTarget.src = unmark}
                                                          onMouseOut={e => e.currentTarget.src = unmark_gray}
                                                     />
                                                 </button>
-
                                             }
-
                                         </div>
                                     </div>
                                 )}
@@ -159,9 +172,12 @@ function Chatting() {
                                                 className="flex items-center justify-center h-10 w-10 rounded-full flex-shrink-0"
                                                 src={komi}
                                                 alt=""/>
-                                            <div
-                                                className="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
-                                                {h.a}
+
+                                            <div className="relative ml-3 text-lg bg-white py-2 px-4 shadow rounded-xl">
+                                                {h.img ?
+                                                    <img src={`data:image/jpeg;base64,${h.img}`}/> : <div></div>
+                                                }
+                                                {h.a ? h.a : <div/>}
                                             </div>
                                         </div>
                                     </div>)}
@@ -178,11 +194,11 @@ function Chatting() {
                                             U
                                         </div>
                                         <div
-                                            className="animate-fade-up relative mr-3 text-sm bg-orange-200 py-2 px-4 shadow rounded-xl">
+                                            className="animate-fade-up relative mr-3 text-lg bg-orange-200 py-2 px-4 shadow rounded-xl">
                                             <TypingAnimation text={sentMessage}/>
                                         </div>
                                         {currentMark ?
-                                            <button className="bookmark-icon" onClick={() => {
+                                            <button className="bookmark-icon flex-shrink-0" onClick={() => {
                                                 setCurrentMark(false);
                                                 removeItem({
                                                     "idx": uid,
@@ -193,7 +209,7 @@ function Chatting() {
                                                 <img src={mark}/>
                                             </button>
                                             :
-                                            <button className="bookmark-icon" onClick={() => {
+                                            <button className="bookmark-icon flex-shrink-0" onClick={() => {
                                                 setCurrentMark(true);
                                                 addItem({
                                                     "idx": uid,
@@ -219,15 +235,16 @@ function Chatting() {
                                             src={komi}
                                             alt=""/>
                                         <div
-                                            className="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
+                                            className="relative ml-3 text-lg bg-white py-2 px-4 shadow rounded-xl">
+                                            {responseImage ?
+                                                <img src={`data:image/jpeg;base64,${responseImage}`}/> : <div></div>
+                                            }
                                             <TypingAnimation text={aianswer}/>
                                         </div>
                                     </div>
                                 </div>)}
                             {loading && (<Loader/>)}
                         </div>
-
-
                     </div>
                 ) : (
                     <div className="guide-box">
@@ -336,6 +353,6 @@ function Chatting() {
             </form>
         </div>
     </div>
-}
+})
 
 export default Chatting

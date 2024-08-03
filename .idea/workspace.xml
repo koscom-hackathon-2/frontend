@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29eb5edc-f657-4570-a27c-9bae8877f3ef" name="Changes" comment="#5 채팅 화면 - 북마크 mouseOver img change">
+    <list default="true" id="29eb5edc-f657-4570-a27c-9bae8877f3ef" name="Changes" comment="(no-issue) Precedent 제거">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Bookmark.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Bookmark.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Chatting.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Chatting.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Help.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Help.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/SimilarPrecedent.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/SimilarPrecedent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/TypingAnimation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TypingAnimation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +75,6 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="29eb5edc-f657-4570-a27c-9bae8877f3ef" name="Changes" comment="" />
-      <changelist id="" name="menu" comment="" />
       <created>1722161971398</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -78,7 +82,8 @@
       <workItem from="1722161972708" duration="3526000" />
       <workItem from="1722238828012" duration="28119000" />
       <workItem from="1722383826230" duration="22131000" />
-      <workItem from="1722469138634" duration="19288000" />
+      <workItem from="1722469138634" duration="29041000" />
+      <workItem from="1722570373054" duration="21820000" />
     </task>
     <task id="LOCAL-00001" summary="#1 캐릭터 이미지 추가">
       <option name="closed" value="true" />
@@ -168,7 +173,55 @@
       <option name="project" value="LOCAL" />
       <updated>1722491501886</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="(no-issue) help href 추가">
+      <option name="closed" value="true" />
+      <created>1722492428304</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1722492428304</updated>
+    </task>
+    <task id="LOCAL-00013" summary="(no-issue) help href 추가">
+      <option name="closed" value="true" />
+      <created>1722501285939</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1722501285940</updated>
+    </task>
+    <task id="LOCAL-00014" summary="(no-issue) loader 수정">
+      <option name="closed" value="true" />
+      <created>1722501695668</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1722501695668</updated>
+    </task>
+    <task id="LOCAL-00015" summary="(no-issue) text size up">
+      <option name="closed" value="true" />
+      <created>1722501715429</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1722501715429</updated>
+    </task>
+    <task id="LOCAL-00016" summary="(no-issue) Precedent 제거">
+      <option name="closed" value="true" />
+      <created>1722501734787</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1722501734787</updated>
+    </task>
+    <task id="LOCAL-00017" summary="(no-issue) Precedent 제거">
+      <option name="closed" value="true" />
+      <created>1722501738368</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1722501738368</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,7 +250,11 @@
     <MESSAGE value="#6 북마크 화면" />
     <MESSAGE value="#5 채팅 화면 - 북마크 기능" />
     <MESSAGE value="#5 채팅 화면 - 북마크 mouseOver img change" />
-    <option name="LAST_COMMIT_MESSAGE" value="#5 채팅 화면 - 북마크 mouseOver img change" />
+    <MESSAGE value="(no-issue) help href 추가" />
+    <MESSAGE value="(no-issue) loader 수정" />
+    <MESSAGE value="(no-issue) text size up" />
+    <MESSAGE value="(no-issue) Precedent 제거" />
+    <option name="LAST_COMMIT_MESSAGE" value="(no-issue) Precedent 제거" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

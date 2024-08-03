@@ -4,7 +4,7 @@ import unmark_gray from "../asset/unmark_gray.svg";
 import {v4 as uuidv4} from "uuid";
 
 
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 
 function Bookmark() {
     // const list = [
