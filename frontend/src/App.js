@@ -41,7 +41,6 @@ function App() {
     const [responseImage, setResponseImage] = useState("");
     const [currentMark, setCurrentMark] = useState(false);
     const [uid, setUid] = useState("");
-    const ans = "\n\n AI가 작성한 답변이며 실제와 다를 수 있으므로 참고 자료로만 활용하시고, 코스콤은 법적 책임을 지지 않는다는 점 참고바랍니다."
 
     const messagehandler = async (e, message) => {
         if (e) {
@@ -86,11 +85,12 @@ function App() {
                         } else {
                             setGeneratedCode(data.generated_code);
                             setResponseImage(data.code_exec_result.image);
-                            setAianswer(data.code_exec_result.text ? data.code_exec_result.text + ans : ans);
+                            setAianswer(data.code_exec_result.text);
                         }
                     }
                 }
             } catch (error) {
+                setAianswer("죄송합니다. 주식 이외의 질문은 답변해 드리지 않는 점 참고 부탁드립니다. 어떤 도움이 필요하신가요?");
                 console.error("에러 발생:", error);
             } finally {
                 setLoading(false);
@@ -245,7 +245,7 @@ function App() {
                                                                                </div>
                                                                                <div
                                                                                    className="animate-fade-up relative mr-3 text-lg bg-orange-200 py-2 px-4 shadow rounded-xl">
-                                                                                   <TypingAnimation text={sentMessage}/>
+                                                                                   {sentMessage}
                                                                                </div>
                                                                                {currentMark ?
                                                                                    <button
@@ -298,7 +298,9 @@ function App() {
                                                                                    <TypingAnimation text={aianswer}/>
                                                                                </div>
                                                                            </div>
-                                                                       </div>)}
+                                                                       </div>
+                                                                   )
+                                                                   }
                                                                    {loading && (<Loader/>)}
                                                                </div>
                                                            </div>
@@ -413,6 +415,9 @@ function App() {
                                                        </div>
                                                    </form>
                                                </div>
+                                               <p className="text-center text-gray-400 py-2 text-sm">* AI가 작성한
+                                                   답변이며 실제와 다를 수 있으므로 참고 자료로만 활용하시고,
+                                                   S-TALK는 법적 책임을 지지 않는다는 점 참고바랍니다.</p>
                                            </div>
                                        }/>
                                 <Route path="/bookmark" element={bookmark}/>
