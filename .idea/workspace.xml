@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29eb5edc-f657-4570-a27c-9bae8877f3ef" name="Changes" comment="bug-fix">
+    <list default="true" id="29eb5edc-f657-4570-a27c-9bae8877f3ef" name="Changes" comment="북마트 리스트 초기화">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Bookmark.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Bookmark.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +78,7 @@
       <workItem from="1722383826230" duration="22131000" />
       <workItem from="1722469138634" duration="29041000" />
       <workItem from="1722570373054" duration="37833000" />
-      <workItem from="1722821640890" duration="2297000" />
+      <workItem from="1722821640890" duration="2883000" />
     </task>
     <task id="LOCAL-00001" summary="#1 캐릭터 이미지 추가">
       <option name="closed" value="true" />
@@ -264,7 +264,23 @@
       <option name="project" value="LOCAL" />
       <updated>1722823338095</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="png">
+      <option name="closed" value="true" />
+      <created>1722824195049</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1722824195049</updated>
+    </task>
+    <task id="LOCAL-00025" summary="북마트 리스트 초기화">
+      <option name="closed" value="true" />
+      <created>1722824263862</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1722824263862</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,7 +319,9 @@
     <MESSAGE value="(no-issue) 화면 하단에 면책문구 추가" />
     <MESSAGE value="(no-issue)" />
     <MESSAGE value="bug-fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug-fix" />
+    <MESSAGE value="png" />
+    <MESSAGE value="북마트 리스트 초기화" />
+    <option name="LAST_COMMIT_MESSAGE" value="북마트 리스트 초기화" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

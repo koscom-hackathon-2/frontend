@@ -6,7 +6,7 @@ import {useNavigate} from "react-router-dom";
 import {v4 as uuidv4} from "uuid";
 
 function Bookmark() {
-    const list = [
+    const list = JSON.parse(localStorage.getItem("list")) || [
         // {
         //     "idx": uuidv4(),
         //     "mark": true,
