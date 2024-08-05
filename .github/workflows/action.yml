@@ -24,7 +24,7 @@ jobs:
           pwd
           ls -al
 
-          cd /home/runner/work/frontend/frontend
+          sudo cd frontend
 
           pwd
           ls -al
