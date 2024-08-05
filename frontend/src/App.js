@@ -34,7 +34,7 @@ function App() {
     const help = Help();
     const [generatedCode, setGeneratedCode] = useState("");
     const [loading, setLoading] = useState(false);
-    const [history, setHistory] = useState([]);
+    const [msgHistory, setMsgHistory] = useState([]);
     const [message, setMessage] = useState("");
     const [sentMessage, setSentMessage] = useState("");
     const [aianswer, setAianswer] = useState("");
@@ -57,7 +57,7 @@ function App() {
                     "a": aianswer,
                     "img": responseImage
                 };
-                setHistory(prevItems => [...prevItems, chat]);
+                setMsgHistory(prevItems => [...prevItems, chat]);
             }
             setLoading(true);
             setMessage("");
@@ -99,26 +99,26 @@ function App() {
     };
 
     const removeItem = (txt) => {
-        const tmp = history.map((item) => {
+        const tmp = msgHistory.map((item) => {
             if (item.idx === txt.idx) {
                 item.mark = false;
             }
             return item;
         });
-        setHistory(tmp);
+        setMsgHistory(tmp);
 
         let list = JSON.parse(localStorage.getItem("list"));
         localStorage.setItem("list", JSON.stringify(list.filter(item => item.idx !== txt.idx)));
     }
 
     const addItem = (txt) => {
-        const tmp = history.map((item) => {
+        const tmp = msgHistory.map((item) => {
             if (item.idx === txt.idx) {
                 item.mark = true;
             }
             return item;
         });
-        setHistory(tmp);
+        setMsgHistory(tmp);
 
         let list = JSON.parse(localStorage.getItem("list"));
         list.push(txt);
@@ -172,10 +172,10 @@ function App() {
                                                <div
                                                    className="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 p-4 mt-12">
                                                    <div className="flex flex-col h-full overflow-x-auto mb-4">
-                                                       {sentMessage || message || history[0] ? (
+                                                       {sentMessage || message || msgHistory[0] ? (
                                                            <div className="flex flex-col">
                                                                {/* old chat */}
-                                                               {history.map(h => (
+                                                               {msgHistory.map(h => (
                                                                    <div className="grid grid-cols-12 gap-y-2">
                                                                        {h.text && (
                                                                            <div
@@ -209,7 +209,7 @@ function App() {
                                                                                </div>
                                                                            </div>
                                                                        )}
-                                                                       {h.a && (
+                                                                       {(h.a || h.img) && (
                                                                            <div
                                                                                className="col-start-1 col-end-8 p-3 rounded-lg">
                                                                                <div
@@ -280,7 +280,7 @@ function App() {
                                                                            </div>
                                                                        </div>
                                                                    )}
-                                                                   {aianswer && (
+                                                                   {(aianswer || responseImage) && (
                                                                        <div
                                                                            className="animate-fade-up animate-delay-100 col-start-1 col-end-8 p-3 rounded-lg">
                                                                            <div className="flex flex-row items-center">

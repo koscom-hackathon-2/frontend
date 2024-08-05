@@ -6,7 +6,7 @@ function TypingAnimation({text}) {
 
     useEffect(() => {
         const typeText = (currentIndex) => {
-            if (currentIndex < text.length) {
+            if (text && currentIndex < text.length) {
                 setVisibleText(text.substring(0, currentIndex + 1));
                 setTimeout(() => typeText(currentIndex + 1), typingDelay);
             }
