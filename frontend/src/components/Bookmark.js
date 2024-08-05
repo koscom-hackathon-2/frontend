@@ -6,27 +6,27 @@ import {useNavigate} from "react-router-dom";
 import {v4 as uuidv4} from "uuid";
 
 function Bookmark() {
-    const list = [
-        {
-            "idx": uuidv4(),
-            "mark": true,
-            "text": "나스닥 지수와 SK텔레콤 주가의 상관관계를 알려줘"
-        },
-        {
-            "idx": uuidv4(),
-            "mark": true,
-            "text": "삼성전자 월말 종가 변화를 알려줘"
-        },
-        {
-            "idx": uuidv4(),
-            "mark": true,
-            "text": "공휴일 전날의 네이버의 외국인 투자자 매도 매수 현황을 보여줘"
-        },
-        {
-            "idx": uuidv4(),
-            "mark": true,
-            "text": "실적 발표 전날과 다음날의 네이버 주주 구성을 알려줘"
-        }
+    const list = JSON.parse(localStorage.getItem("list")) || [
+        // {
+        //     "idx": uuidv4(),
+        //     "mark": true,
+        //     "text": "나스닥 지수와 SK텔레콤 주가의 상관관계를 알려줘"
+        // },
+        // {
+        //     "idx": uuidv4(),
+        //     "mark": true,
+        //     "text": "삼성전자 월말 종가 변화를 알려줘"
+        // },
+        // {
+        //     "idx": uuidv4(),
+        //     "mark": true,
+        //     "text": "공휴일 전날의 네이버의 외국인 투자자 매도 매수 현황을 보여줘"
+        // },
+        // {
+        //     "idx": uuidv4(),
+        //     "mark": true,
+        //     "text": "실적 발표 전날과 다음날의 네이버 주주 구성을 알려줘"
+        // }
     ]
 
     localStorage.setItem("list", JSON.stringify(list));

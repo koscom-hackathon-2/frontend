@@ -223,7 +223,7 @@ function App() {
                                                                                        className="relative ml-3 text-lg bg-white py-2 px-4 shadow rounded-xl">
                                                                                        {h.img ?
                                                                                            <img
-                                                                                               src={`data:image/jpeg;base64,${h.img}`}/> :
+                                                                                               src={`data:image/png;base64,${h.img}`}/> :
                                                                                            <div></div>
                                                                                        }
                                                                                        {h.a ? h.a : <div/>}
@@ -292,7 +292,7 @@ function App() {
                                                                                    className="relative ml-3 text-lg bg-white py-2 px-4 shadow rounded-xl">
                                                                                    {responseImage ?
                                                                                        <img
-                                                                                           src={`data:image/jpeg;base64,${responseImage}`}/> :
+                                                                                           src={`data:image/png;base64,${responseImage}`}/> :
                                                                                        <div></div>
                                                                                    }
                                                                                    <TypingAnimation text={aianswer}/>
