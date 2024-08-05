@@ -23,8 +23,8 @@ import "highlight.js/styles/a11y-dark.css";
 
 function App() {
     const guideMsg = [
-        "삼성전자 월말 종가 변화를 알려줘",
-        "공휴일 전날의 네이버의 외국인 투자자 매도 매수 현황을 보여줘",
+        "삼성전자 월말 종가 그래프 보여줘",
+        "공휴일 전날의 네이버의 외국인 투자자 매도 매수 현황을 그래프로 보여줘",
         "실적 발표 전날과 다음날의 네이버 주주 구성을 알려줘",
         "나스닥 지수와 SK텔레콤 주가의 상관관계를 알려줘"
     ];
@@ -135,7 +135,7 @@ function App() {
 
     useEffect(() => {
         if (loc.state) {
-            handleEvent(loc.state.text);
+            handleEvent(loc.state.txt);
         }
 
         // 새로 고침 시 상태를 제거
