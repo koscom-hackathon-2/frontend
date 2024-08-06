@@ -88,7 +88,9 @@ function App() {
                             setGeneratedCode(data.generated_code);
                             setResponseImage(data.code_exec_result.image);
                             setAianswer(data.code_exec_result.text);
-                            setNews(data.news_result.news);
+                            if (data.news_result !== undefined) {
+                                setNews(data.news_result.news);
+                            }
                         }
                     }
                 }
