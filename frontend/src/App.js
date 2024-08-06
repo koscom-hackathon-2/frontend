@@ -23,10 +23,10 @@ import "highlight.js/styles/a11y-dark.css";
 
 function App() {
     const guideMsg = [
-        "삼성전자, SK하이닉스, LG에너지솔루션, 현대차, 셀트리온의 시가총액을 막대 그래프로 그려줘",
+        "지난 일주일동안 유가증권시장에서 가장 많이 오른 종목 5개와 가장 많이 떨어진 종목 5개의 주가 변동 비율을 막대 그래프로 그려줘",
+        "카카오 뱅크의 등락율 그래프를 그려줘",
         "삼성전자의 개인/기관/외국인 투자자의 비율을 pie chart로 그려줘. subplot 2개로 구성해서 어제와 오늘의 비율을 각각 그려줘",
         "지난 1년간 KOSPI 200과 삼성전자 종가의 scatter plot을 그려줘. 그리고 상관관계를 계산해줘",
-        "네이버의 6개월동안의 종가, 저가, 고가를 모두 표현하는 box plot을 그려줘",
     ];
 
     const location = useLocation();
