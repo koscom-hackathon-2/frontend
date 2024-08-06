@@ -211,7 +211,7 @@ function App() {
     function clickGuideBox(msg, e) {
         setMessage(msg.question);
         const idx = msg.idx | null;
-        messagehandler(e, msg.question, msg.idx);
+        messagehandler(e, msg.question, idx);
     }
 
     let loc = useLocation();
@@ -219,7 +219,7 @@ function App() {
 
     useEffect(() => {
         if (loc.state) {
-            handleEvent(loc.state.txt);
+            handleEvent(loc.state);
         }
 
         // 새로 고침 시 상태를 제거
@@ -235,7 +235,7 @@ function App() {
 
     }, [loc.state, navigate]);
 
-    const handleEvent = (text) => {
+    const handleEvent = (msg) => {
         clickGuideBox(text, null);
     };
 
