@@ -90,7 +90,9 @@ function Bookmark() {
                                             />
                                         </button>
                                     }
-                                    <div className="text-lg" onClick={(e) => handleClick(txt.text)}>{txt.text}</div>
+                                    <div
+                                        className="text-lg overflow-hidden inline-block text-ellipsis whitespace-nowrap"
+                                        onClick={(e) => handleClick(txt.text)}>{txt.text}</div>
                                 </div>
                             ))
                         }
