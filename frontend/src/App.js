@@ -67,6 +67,7 @@ function App() {
             setResponseImage("");
             setUid(uuidv4());
             setCurrentMark(false);
+            setNews([]);
             try {
                 if (message.trim().length <= 5) {
                     setAianswer("죄송합니다. 입력하신 \"" + message + "\"는 너무 짧아 정확한 답변을 제공하기 어려운 점 양해해주시기 바랍니다. 정확하고 효과적인 답변을 위해 더욱 구체적으로 질문해주시기 바랍니다.");
@@ -433,7 +434,7 @@ function App() {
                                     className="top-12 right-0 z-40 h-screen transition-transform -translate-x-full sm:translate-x-0"
                                     aria-label="Sidebar"
                                 >
-                                    {news &&
+                                    {news.length !== 0 ?
                                         <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
                                             <ul className="space-y-2 font-medium mt-2 mb-2">
                                                 <h5 className="mb-2 pt-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">📰
@@ -458,9 +459,8 @@ function App() {
                                                     </div>
                                                 ))}
                                             </ul>
-                                        </div>
+                                        </div> : <div></div>
                                     }
-
                                     <div
                                         className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
                                         {generatedCode ?
@@ -470,7 +470,7 @@ function App() {
                                                     {"```python\n" + generatedCode + "\n" + "```"}
                                                 </ReactMarkdown>
                                             </div>
-                                            : null
+                                            : <div></div>
                                         }
                                     </div>
                                 </aside>
