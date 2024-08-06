@@ -210,8 +210,7 @@ function App() {
 
     function clickGuideBox(msg, e) {
         setMessage(msg.question);
-        const idx = msg.idx | null;
-        messagehandler(e, msg.question, idx);
+        messagehandler(e, msg.question, msg.idx);
     }
 
     let loc = useLocation();

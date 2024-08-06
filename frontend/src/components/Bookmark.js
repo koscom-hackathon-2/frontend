@@ -63,7 +63,7 @@ function Bookmark() {
     const handleClick = (txt) => {
         // 이동하면서 상태 전달
 
-        navigate('/', {state: {"question": txt}, replace: true},);
+        navigate('/', {state: {"question": txt, "idx": false}, replace: true},);
     };
 
     return <div className="flex flex-col flex-auto p-6">
