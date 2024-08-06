@@ -15,7 +15,7 @@ function Bookmark() {
         {
             "idx": uuidv4(),
             "mark": true,
-            "text": "삼성전자의 개인/기관/외국인 투자자의 비율을 pie chart로 그려줘. subplot 2개로 구성해서 어제와 오늘의 비율을 각각 그려줘"
+            "text": "삼성전자의 개인/기관/외국인 투자자의 비율을 pie chart로 그려줘."
         },
         {
             "idx": uuidv4(),
