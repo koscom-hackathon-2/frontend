@@ -130,7 +130,7 @@ function App() {
                 } else {
                     if (idx) {
                         const response = await fetch('http://103.244.111.246:8080/news', {
-                            // mode: 'no-cors',
+                            mode: 'no-cors',
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
