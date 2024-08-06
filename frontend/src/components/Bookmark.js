@@ -35,7 +35,7 @@ function Bookmark() {
         {
             "idx": uuidv4(),
             "mark": true,
-            "text": "네이버의 6개월 동안의 저가, 고가를 모두 표현하는 box plot을 그려줘"
+            "text": "현대자동차의 6개월동안의 종가, 저가, 고가를 모두 표현하는 box plot을 그려줘"
         }
     ]
 

@@ -23,11 +23,45 @@ import "highlight.js/styles/a11y-dark.css";
 
 function App() {
     const guideMsg = [
-        "삼성전자의 지난 1년간 시가 총액 추이를 그려줘",
-        "지난 1년간 KOSPI 200과 삼성전자 종가의 scatter plot을 그려줘. 그리고 상관관계를 분석해줘",
-        "지난 일주일 동안 유가증권시장에서 가장 많이 오른 종목 5개와 가장 많이 떨어진 종목 5개의 주가 변동 비율을 막대 그래프로 그려줘",
-        "ACE AI 반도체 포커스(469150) ETF 종목 구성을 pie chart로 그려줘",
+        {
+            "idx": uuidv4(),
+            "question": "삼성전자의 지난 1년간 시가 총액 추이를 그려줘",
+            "generated_code": "CodecodeCodecode",
+            "code_exec_result": {
+                "image": "base64",
+                "text": "이건 정해진 답변입니다. 이건 정해진 답변입니다. 이건 정해진 답변입니다. 이건 정해진 답변입니다."
+            }
+        },
+        {
+            "idx": uuidv4(),
+            "question": "삼성전자의 지난 1년간 시가 총액 추이를 그려줘",
+            "generated_code": "CodecodeCodecode",
+            "code_exec_result": {
+                "image": "base64",
+                "text": "이건 정해진 답변입니다. 이건 정해진 답변입니다. 이건 정해진 답변입니다. 이건 정해진 답변입니다."
+            }
+        },
+        {
+            "idx": uuidv4(),
+            "question": "지난 1년간 KOSPI 200과 삼성전자 종가의 scatter plot을 그려줘. 그리고 상관관계를 분석해줘",
+            "generated_code": "CodecodeCodecode",
+            "code_exec_result": {
+                "image": "base64",
+                "text": "이건 정해진 답변입니다. 이건 정해진 답변입니다. 이건 정해진 답변입니다. 이건 정해진 답변입니다."
+            }
+        },
+        {
+            "idx": uuidv4(),
+            "question": "지난 일주일 동안 유가증권시장에서 가장 많이 오른 종목 5개와 가장 많이 떨어진 종목 5개의 주가 변동 비율을 막대 그래프로 그려줘",
+            "generated_code": "CodecodeCodecode",
+            "code_exec_result": {
+                "image": "base64",
+                "text": "이건 정해진 답변입니다. 이건 정해진 답변입니다. 이건 정해진 답변입니다. 이건 정해진 답변입니다."
+            }
+        }
     ];
+
+    localStorage.setItem("guideMsg", JSON.stringify(guideMsg));
 
     const location = useLocation();
     const bookmark = Bookmark();
@@ -43,7 +77,7 @@ function App() {
     const [uid, setUid] = useState("");
     const [news, setNews] = useState([]);
 
-    const messagehandler = async (e, message) => {
+    const messagehandler = async (e, message, idx) => {
         if (e) {
             e.preventDefault();
         }
@@ -67,12 +101,21 @@ function App() {
             setResponseImage("");
             setUid(uuidv4());
             setCurrentMark(false);
-            // setNews([]);
             try {
                 if (message.trim().length <= 5) {
                     setAianswer("죄송합니다. 입력하신 \"" + message + "\"는 너무 짧아 정확한 답변을 제공하기 어려운 점 양해해주시기 바랍니다. 정확하고 효과적인 답변을 위해 더욱 구체적으로 질문해주시기 바랍니다.");
                 } else {
-                    const response = await fetch('http://103.244.111.246:8080/chat-completion', {
+                    let data;
+
+                    if (idx) {
+                        data = JSON.parse(localStorage.getItem("guideMsg"));
+                        setGeneratedCode(data.filter(d => d.idx === idx).map(d => d.generated_code)[0]);
+                        setResponseImage(data.filter(d => d.idx === idx).map(d => d.code_exec_result.image)[0]);
+                        setAianswer(data.filter(d => d.idx === idx).map(d => d.code_exec_result.text)[0]);
+                        return;
+                    }
+
+                    const response = await fetch('http://localhost:8080/chat-completion', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -80,9 +123,10 @@ function App() {
                         body: JSON.stringify({user_message: message}),
                     });
 
-                    const data = await response.json();
+                    data = await response.json();
+
                     if (data != null) {
-                        if (data.generated_code === null || data.code_exec_result === null) {
+                        if (data.generated_code === null && data.code_exec_result === null) {
                             setAianswer("죄송합니다. 현재 해당 API에 접근할 수 없어 답변이 어려운 점 참고 부탁드립니다. 어떤 도움이 필요하신가요?");
                         } else {
                             setGeneratedCode(data.generated_code);
@@ -131,8 +175,8 @@ function App() {
     }
 
     function clickGuideBox(msg, e) {
-        setMessage(msg);
-        messagehandler(e, msg);
+        setMessage(msg.question);
+        messagehandler(e, msg.question, msg.idx);
     }
 
     let loc = useLocation();
@@ -220,10 +264,9 @@ function App() {
                                                                                <div
                                                                                    className="flex flex-row items-center">
                                                                                    <img
-                                                                                       className="fixed top-0 items-center justify-center h-10 w-10 rounded-full flex-shrink-0"
+                                                                                       className="items-center justify-center h-10 w-10 rounded-full flex-shrink-0"
                                                                                        src={komi}
                                                                                        alt=""/>
-
                                                                                    <div
                                                                                        className="relative ml-3 text-lg bg-white py-2 px-4 shadow rounded-xl">
                                                                                        {h.img ?
@@ -318,7 +361,8 @@ function App() {
                                                                        <div className="icon1">
                                                                            <img src={chart3}></img>
                                                                        </div>
-                                                                       <div className="guide-text">{guideMsg[0]}</div>
+                                                                       <div
+                                                                           className="guide-text">{guideMsg[0].question}</div>
                                                                        <div className="icon2">
                                                                            <img src={next}></img>
                                                                        </div>
@@ -330,7 +374,8 @@ function App() {
                                                                        <div className="icon1">
                                                                            <img src={chart1}></img>
                                                                        </div>
-                                                                       <div className="guide-text">{guideMsg[1]}</div>
+                                                                       <div
+                                                                           className="guide-text">{guideMsg[1].question}</div>
                                                                        <div className="icon2">
                                                                            <img src={next}></img>
                                                                        </div>
@@ -342,7 +387,8 @@ function App() {
                                                                        <div className="icon1">
                                                                            <img src={chart2}></img>
                                                                        </div>
-                                                                       <div className="guide-text">{guideMsg[2]}</div>
+                                                                       <div
+                                                                           className="guide-text">{guideMsg[2].question}</div>
                                                                        <div className="icon2">
                                                                            <img src={next}></img>
                                                                        </div>
@@ -354,7 +400,8 @@ function App() {
                                                                        <div className="icon1">
                                                                            <img src={chart4}></img>
                                                                        </div>
-                                                                       <div className="guide-text">{guideMsg[3]}</div>
+                                                                       <div
+                                                                           className="guide-text">{guideMsg[3].question}</div>
                                                                        <div className="icon2">
                                                                            <img src={next}></img>
                                                                        </div>
@@ -365,7 +412,7 @@ function App() {
                                                    </div>
                                                    <form
                                                        className="flex flex-row items-center h-16 rounded-xl bg-white w-full px-4"
-                                                       onSubmit={(e) => messagehandler(e, message)}
+                                                       onSubmit={(e) => messagehandler(e, message, null)}
                                                        disabled={loading}>
                                                        <div>
                                                            <div
@@ -464,7 +511,7 @@ function App() {
                                         </div> : <div></div>
                                     }
                                     <div
-                                        className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+                                        className="h-full px-3 py-4 overflow-y bg-gray-50 dark:bg-gray-800">
                                         {generatedCode ?
                                             <div className="space-y-2 mt-2 mb-2 pl-1">
                                                 <h1 className="text-2xl font-extrabold pt-4">🤖 Generated Code</h1>
