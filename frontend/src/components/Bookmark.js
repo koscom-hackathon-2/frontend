@@ -10,7 +10,7 @@ function Bookmark() {
         {
             "idx": uuidv4(),
             "mark": true,
-            "text": "ACE AI 반도체 포커스 ETF 종목 구성을 pie chart로 그려줘"
+            "text": "ACE AI 반도체 포커스(469150) ETF 종목 구성을 pie chart로 그려줘"
         },
         {
             "idx": uuidv4(),
@@ -30,12 +30,12 @@ function Bookmark() {
         {
             "idx": uuidv4(),
             "mark": true,
-            "text": "삼성전자, SK하이닉스, 현대차, 셀트리온의 시가총액을 막대 그래프로 그려줘"
+            "text": "삼성전자, SK하이닉스, 현대자동차 시가총액을 막대 그래프로 그려줘"
         },
         {
             "idx": uuidv4(),
             "mark": true,
-            "text": "네이버의 6개월 동안의 저가, 고가를 모두 표현하는 캔들 차트를 그려줘"
+            "text": "네이버의 6개월 동안의 저가, 고가를 모두 표현하는 box plot을 그려줘"
         }
     ]
 
