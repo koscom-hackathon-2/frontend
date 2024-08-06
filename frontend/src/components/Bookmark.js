@@ -90,10 +90,10 @@ function Bookmark() {
                             originList.map((txt, index) => (
                                 <div className={"bookmark-card animate-fade-up animate-delay-" + index * 100}>
                                     {txt.mark ?
-                                        <button className="bookmark-icon" onClick={() => removeItem(txt)}>
+                                        <button className="bookmark-icon absolute" onClick={() => removeItem(txt)}>
                                             <img src={mark}/>
                                         </button> :
-                                        <button className="bookmark-icon" onClick={() => addItem(txt)}>
+                                        <button className="bookmark-icon absolute" onClick={() => addItem(txt)}>
                                             <img src={unmark}
                                                  onMouseOver={e => e.currentTarget.src = unmark}
                                                  onMouseOut={e => e.currentTarget.src = unmark_gray}
@@ -101,7 +101,7 @@ function Bookmark() {
                                         </button>
                                     }
                                     <div
-                                        className="text-lg overflow-hidden inline-block text-ellipsis whitespace-nowrap"
+                                        className="text-lg pl-14 overflow-hidden inline-block text-ellipsis whitespace-nowrap"
                                         onClick={(e) => handleClick(txt.text)}>{txt.text}</div>
                                 </div>
                             ))
