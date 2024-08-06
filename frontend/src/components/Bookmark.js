@@ -7,26 +7,36 @@ import {v4 as uuidv4} from "uuid";
 
 function Bookmark() {
     const list = JSON.parse(localStorage.getItem("list")) || [
-        // {
-        //     "idx": uuidv4(),
-        //     "mark": true,
-        //     "text": "나스닥 지수와 SK텔레콤 주가의 상관관계를 알려줘"
-        // },
-        // {
-        //     "idx": uuidv4(),
-        //     "mark": true,
-        //     "text": "삼성전자 월말 종가 변화를 알려줘"
-        // },
-        // {
-        //     "idx": uuidv4(),
-        //     "mark": true,
-        //     "text": "공휴일 전날의 네이버의 외국인 투자자 매도 매수 현황을 보여줘"
-        // },
-        // {
-        //     "idx": uuidv4(),
-        //     "mark": true,
-        //     "text": "실적 발표 전날과 다음날의 네이버 주주 구성을 알려줘"
-        // }
+        {
+            "idx": uuidv4(),
+            "mark": true,
+            "text": "ACE AI 반도체 포커스 ETF 종목 구성을 pie chart로 그려줘"
+        },
+        {
+            "idx": uuidv4(),
+            "mark": true,
+            "text": "삼성전자의 개인/기관/외국인 투자자의 비율을 pie chart로 그려줘. subplot 2개로 구성해서 어제와 오늘의 비율을 각각 그려줘"
+        },
+        {
+            "idx": uuidv4(),
+            "mark": true,
+            "text": "지난 일주일동안 유가증권시장에서 가장 많이 오른 종목 5개와 가장 많이 떨어진 종목 5개의 주가 변동 비율을 막대 그래프로 그려줘"
+        },
+        {
+            "idx": uuidv4(),
+            "mark": true,
+            "text": "지난 1년간 KOSPI 200과 삼성전자 종가의 scatter plot을 그려줘. 그리고 상관관계를 계산해줘"
+        },
+        {
+            "idx": uuidv4(),
+            "mark": true,
+            "text": "삼성전자, SK하이닉스, 현대차, 셀트리온의 시가총액을 막대 그래프로 그려줘"
+        },
+        {
+            "idx": uuidv4(),
+            "mark": true,
+            "text": "네이버의 6개월 동안의 저가, 고가를 모두 표현하는 캔들 차트를 그려줘"
+        }
     ]
 
     localStorage.setItem("list", JSON.stringify(list));
