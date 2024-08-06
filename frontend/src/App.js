@@ -236,7 +236,7 @@ function App() {
     }, [loc.state, navigate]);
 
     const handleEvent = (msg) => {
-        clickGuideBox(text, null);
+        clickGuideBox(msg, null);
     };
 
     function sleep(sec) {
