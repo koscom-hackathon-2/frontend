@@ -10,27 +10,12 @@ function Bookmark() {
         {
             "idx": uuidv4(),
             "mark": true,
-            "text": "ACE AI 반도체 포커스(469150) ETF 종목 구성을 pie chart로 그려줘"
+            "text": "삼성전자의 지난 1년간 시가 총액 추이를 그려줘"
         },
         {
             "idx": uuidv4(),
             "mark": true,
-            "text": "삼성전자의 개인/기관/외국인 투자자의 비율을 pie chart로 그려줘."
-        },
-        {
-            "idx": uuidv4(),
-            "mark": true,
-            "text": "지난 일주일동안 유가증권시장에서 가장 많이 오른 종목 5개와 가장 많이 떨어진 종목 5개의 주가 변동 비율을 막대 그래프로 그려줘"
-        },
-        {
-            "idx": uuidv4(),
-            "mark": true,
-            "text": "지난 1년간 KOSPI 200과 삼성전자 종가의 scatter plot을 그려줘. 그리고 상관관계를 계산해줘"
-        },
-        {
-            "idx": uuidv4(),
-            "mark": true,
-            "text": "삼성전자, SK하이닉스, 현대자동차 시가총액을 막대 그래프로 그려줘"
+            "text": "2024년 1월 2일의 KOSPI 200 ETF의 종목 구성을 pie chart로 그려줘"
         },
         {
             "idx": uuidv4(),
