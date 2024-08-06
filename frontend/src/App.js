@@ -81,7 +81,7 @@ function App() {
                     const data = await response.json();
                     if (data != null) {
                         if (data.generated_code === null || data.code_exec_result === null) {
-                            setAianswer("죄송합니다. 주식 이외의 질문은 답변해 드리지 않는 점 참고 부탁드립니다. 어떤 도움이 필요하신가요?");
+                            setAianswer("죄송합니다. 현재 해당 API에 접근할 수 없어 답변이 어려운 점 참고 부탁드립니다. 어떤 도움이 필요하신가요?");
                         } else {
                             setGeneratedCode(data.generated_code);
                             setResponseImage(data.code_exec_result.image);
@@ -90,7 +90,7 @@ function App() {
                     }
                 }
             } catch (error) {
-                setAianswer("죄송합니다. 주식 이외의 질문은 답변해 드리지 않는 점 참고 부탁드립니다. 어떤 도움이 필요하신가요?");
+                setAianswer("죄송합니다. 현재 해당 API에 접근할 수 없어 답변이 어려운 점 참고 부탁드립니다. 어떤 도움이 필요하신가요?");
                 console.error("에러 발생:", error);
             } finally {
                 setLoading(false);
