@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="29eb5edc-f657-4570-a27c-9bae8877f3ef" name="Changes" comment="(no-issue) guide box text 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Bookmark.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Bookmark.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +80,7 @@
       <workItem from="1722469138634" duration="29041000" />
       <workItem from="1722570373054" duration="37833000" />
       <workItem from="1722821640890" duration="2883000" />
-      <workItem from="1722901437056" duration="8059000" />
+      <workItem from="1722901437056" duration="12761000" />
     </task>
     <task id="LOCAL-00001" summary="#1 캐릭터 이미지 추가">
       <option name="closed" value="true" />
@@ -338,7 +338,23 @@
       <option name="project" value="LOCAL" />
       <updated>1722907797362</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="(no-issue) 북마크 아이콘 사이즈 fixed">
+      <option name="closed" value="true" />
+      <created>1722910145934</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1722910145935</updated>
+    </task>
+    <task id="LOCAL-00034" summary="불필요한 코드제거">
+      <option name="closed" value="true" />
+      <created>1722915963789</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1722915963789</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -349,15 +365,25 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="deploy" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="#7 HELP 화면 - animation 적용" />
-    <MESSAGE value="#7 HELP 화면 - css 수정" />
     <MESSAGE value="(no-issue) 컴포넌트 파일 분리" />
     <MESSAGE value="#4 홈 화면" />
     <MESSAGE value="#6 북마크 화면" />
@@ -379,9 +405,11 @@
     <MESSAGE value="(no-issue) bookmark text overflow ellipsis 적용" />
     <MESSAGE value="(no-issue) guide box css" />
     <MESSAGE value="(no-issue) 시연준비" />
-    <MESSAGE value="(no-issue) guide box text 수정" />
     <MESSAGE value="(no-issue) error 문구 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="(no-issue) error 문구 수정" />
+    <MESSAGE value="(no-issue) 북마크 아이콘 사이즈 fixed" />
+    <MESSAGE value="(no-issue) guide box text 수정" />
+    <MESSAGE value="불필요한 코드제거" />
+    <option name="LAST_COMMIT_MESSAGE" value="불필요한 코드제거" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

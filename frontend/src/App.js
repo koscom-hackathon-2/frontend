@@ -23,9 +23,9 @@ import "highlight.js/styles/a11y-dark.css";
 
 function App() {
     const guideMsg = [
-        "카카오 뱅크의 등락율 그래프를 그려줘",
-        "지난 1년간 KOSPI 200과 삼성전자 종가의 scatter plot을 그려줘. 그리고 상관관계를 계산해줘",
-        "지난 일주일동안 유가증권시장에서 가장 많이 오른 종목 5개와 가장 많이 떨어진 종목 5개의 주가 변동 비율을 막대 그래프로 그려줘",
+        "삼성전자의 어제의 캔들차트를 그려줘",
+        "지난 1년간 KOSPI 200과 삼성전자 종가의 scatter plot을 그려줘. 그리고 상관관계를 분석해줘",
+        "지난 일주일 동안 유가증권시장에서 가장 많이 오른 종목 5개와 가장 많이 떨어진 종목 5개의 주가 변동 비율을 막대 그래프로 그려줘",
         "삼성전자의 개인/기관/외국인 투자자의 비율을 pie chart로 그려줘. subplot 2개로 구성해서 어제와 오늘의 비율을 각각 그려줘",
     ];
 
@@ -41,6 +41,7 @@ function App() {
     const [responseImage, setResponseImage] = useState("");
     const [currentMark, setCurrentMark] = useState(false);
     const [uid, setUid] = useState("");
+    const [news, setNews] = useState([]);
 
     const messagehandler = async (e, message) => {
         if (e) {
@@ -86,6 +87,7 @@ function App() {
                             setGeneratedCode(data.generated_code);
                             setResponseImage(data.code_exec_result.image);
                             setAianswer(data.code_exec_result.text);
+                            setNews(data.news_result.news);
                         }
                     }
                 }
@@ -215,7 +217,7 @@ function App() {
                                                                                <div
                                                                                    className="flex flex-row items-center">
                                                                                    <img
-                                                                                       className="flex items-center justify-center h-10 w-10 rounded-full flex-shrink-0"
+                                                                                       className="fixed top-0 items-center justify-center h-10 w-10 rounded-full flex-shrink-0"
                                                                                        src={komi}
                                                                                        alt=""/>
 
@@ -431,6 +433,34 @@ function App() {
                                     className="top-12 right-0 z-40 h-screen transition-transform -translate-x-full sm:translate-x-0"
                                     aria-label="Sidebar"
                                 >
+                                    {news &&
+                                        <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+                                            <ul className="space-y-2 font-medium mt-2 mb-2">
+                                                <h5 className="mb-2 pt-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">📰
+                                                    News</h5>
+                                                {news.map((n) => (
+                                                    <div
+                                                        className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                                        <h4 className="mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">{n.title}</h4>
+                                                        <p className="font-small text-gray-700 dark:text-gray-400">{n.source}, {n.date}</p>
+                                                        <a href={n.link} target="_blank"
+                                                           rel="noopener noreferer nofollow"
+                                                           className="mt-2 inline-flex items-center px-2 py-1.5 text-sm font-medium text-center text-white bg-orange-500 rounded-lg hover:bg-orange-300 focus:ring-4 focus:outline-none focus:ring-orange-500 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:orange-800">
+                                                            Read more
+                                                            <svg className="w-3.5 h-3.5 ml-2" aria-hidden="true"
+                                                                 xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                 viewBox="0 0 14 10">
+                                                                <path stroke="currentColor" strokeLinecap="round"
+                                                                      strokeLinejoin="round"
+                                                                      strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                                                            </svg>
+                                                        </a>
+                                                    </div>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    }
+
                                     <div
                                         className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
                                         {generatedCode ?
